@@ -4,6 +4,9 @@ metadata:
   name: {{ include "example-app.fullname" . }}
   labels:
     {{- include "example-app.labels" . | nindent 4 }}
+    app.kubernetes.io/source-repo: {{ .Values.sourceRepo.name | quote }}
+  annotations:
+    app.kubernetes.io/source-repo-url: {{ .Values.sourceRepo.url | quote }}
 spec:
   type: {{ .Values.service.type }}
   ports:
