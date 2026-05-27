@@ -1,0 +1,24 @@
+replicaCount: 1
+
+fullnameOverride: my-app
+
+image:
+  repository: nginxinc/nginx-unprivileged
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+sourceRepo:
+  name: "your-org-your-repo"
+  url: "https://github.com/your-org/your-repo"
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
