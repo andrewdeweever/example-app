@@ -1,19 +1,26 @@
 replicaCount: 1
 
-fullnameOverride: my-app
-
 image:
   repository: nginxinc/nginx-unprivileged
   tag: "latest"
   pullPolicy: IfNotPresent
 
+ports:
+  - name: http
+    containerPort: 80
+    protocol: TCP
+
 service:
   type: ClusterIP
-  port: 80
+  ports:
+    - name: http
+      port: 80
+      targetPort: 90
+      protocol: TCP
 
 sourceRepo:
-  name: "your-org-your-repo"
-  url: "https://github.com/your-org/your-repo"
+  name: "example-app"
+  url: "https://github.com/andrewdeweever/example-app"
 
 resources: {}
 
