@@ -7,7 +7,7 @@ image:
 
 ports:
   - name: http
-    containerPort: 80
+    containerPort: 8080
     protocol: TCP
 
 service:
@@ -15,7 +15,7 @@ service:
   ports:
     - name: http
       port: 80
-      targetPort: 90
+      targetPort: 8080
       protocol: TCP
 
 sourceRepo:
